@@ -22,7 +22,7 @@ type User struct {
 type Game struct {
 	ID          string `gorm:"primaryKey; size:255"`
 	Name        string `gorm:"size:255; not null; unique"`
-	CompanyName string `gorm:"size:255; not null; unique"`
+	CompanyName string `gorm:"size:255; not null;"`
 	Description string `gorm:"size:255"`
 	ImageUrl    string
 
@@ -33,8 +33,8 @@ type Game struct {
 
 type UserGameProfile struct {
 	ID     string `gorm:"primaryKey; size:255"`
-	UserID string `gorm:"size:255"`
-	GameID string `gorm:"size:255"`
+	UserID string `gorm:"not null; uniqueIndex:ugp_user_game"`
+	GameID string `gorm:"not null; uniqueIndex:ugp_user_game"`
 
 	CreatedAt time.Time
 	UpdatedAt time.Time

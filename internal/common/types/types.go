@@ -23,3 +23,17 @@ type UserDeatils struct {
 	Email         string `json:"email"`
 	ProfileImgUrl string `json:"profile_img_url"`
 }
+
+type UserGameDeatils struct {
+	UGPID           string `json:"ugp_id"`
+	GameID          string `json:"game_id"`
+	GameName        string `json:"game_name"`
+	CompanyName     string `json:"company_name"`
+	GameDescription string `json:"game_description"`
+	GameImgUrl      string `json:"game_img_url"`
+}
+
+type UserGameData struct {
+	UserID          string            `json:"user_id"`
+	UserGameDeatils []UserGameDeatils `json:"user_game_details"`
+}
